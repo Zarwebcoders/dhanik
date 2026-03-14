@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import './ReferralNetwork.css';
 import { useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../config';
 
 const ReferralNetwork = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -40,7 +41,7 @@ const ReferralNetwork = () => {
                     return;
                 }
 
-                const response = await fetch('http://localhost:5000/api/referral/network', {
+                const response = await fetch(`${BASE_URL}/api/referral/network`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
 

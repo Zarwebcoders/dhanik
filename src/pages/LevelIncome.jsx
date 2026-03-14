@@ -12,6 +12,7 @@ import {
     AlertCircle
 } from 'lucide-react';
 import './LevelIncome.css';
+import { BASE_URL } from '../config';
 
 const LevelIncome = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -25,10 +26,10 @@ const LevelIncome = () => {
             try {
                 const token = localStorage.getItem('token');
                 const [networkRes, historyRes] = await Promise.all([
-                    fetch('http://localhost:5000/api/referral/network', {
+                    fetch(`${BASE_URL}/api/referral/network`, {
                         headers: { 'Authorization': `Bearer ${token}` }
                     }),
-                    fetch('http://localhost:5000/api/referral/income-history', {
+                    fetch(`${BASE_URL}/api/referral/income-history`, {
                         headers: { 'Authorization': `Bearer ${token}` }
                     })
                 ]);

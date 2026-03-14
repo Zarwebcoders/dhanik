@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Lock, Zap, User, ArrowRight, ShieldCheck, Users } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../config';
 import './Auth.css';
 
 const Register = () => {
@@ -26,7 +27,7 @@ const Register = () => {
 
         setLoading(true);
         try {
-            const response = await fetch('http://localhost:5000/api/auth/register', {
+            const response = await fetch(`${BASE_URL}/api/auth/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

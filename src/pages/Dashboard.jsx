@@ -23,6 +23,7 @@ import {
     X
 } from 'lucide-react';
 import './Dashboard.css';
+import { BASE_URL } from '../config';
 import BuyToken from './BuyToken';
 import LevelIncome from './LevelIncome';
 import Support from './Support';
@@ -110,7 +111,7 @@ const Dashboard = () => {
                     return;
                 }
 
-                const response = await fetch('http://localhost:5000/api/profile', {
+                const response = await fetch(`${BASE_URL}/api/profile`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
 
@@ -320,7 +321,7 @@ const Dashboard = () => {
                                             <input
                                                 type="text"
                                                 readOnly
-                                                value={`dhanki.io/ref/${user?.referralId || '----'}`}
+                                                value={`dhanik.in/ref/${user?.referralId || '----'}`}
                                                 style={{
                                                     background: 'transparent',
                                                     border: 'none',
@@ -330,7 +331,7 @@ const Dashboard = () => {
                                                     fontSize: '0.85rem'
                                                 }}
                                             />
-                                            <Copy size={18} className="gold-glow-text" style={{ cursor: 'pointer' }} onClick={() => navigator.clipboard.writeText(`dhanki.io/ref/${user?.referralId}`)} />
+                                            <Copy size={18} className="gold-glow-text" style={{ cursor: 'pointer' }} onClick={() => navigator.clipboard.writeText(`dhanik.in/ref/${user?.referralId}`)} />
                                         </div>
                                     </div>
                                 </div>
